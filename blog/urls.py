@@ -5,6 +5,6 @@ from .views import HomeView, PostDetailView
 app_name = 'blog'
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
-    path('post/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
+    path('posts/', HomeView.as_view(), name='home'),
+    path('posts/<int:pk>/', PostDetailView.as_view(), name='post_detail'),
 ]
