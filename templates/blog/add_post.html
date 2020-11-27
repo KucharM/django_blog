@@ -1,0 +1,17 @@
+{% extends 'main/main.html' %}
+
+{% block title %}
+    Create Post
+{% endblock %}
+
+{% block content %}
+
+    <h1>Add Post:</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class='btn btn-primary'>Create</button>
+    </form>
+
+{% endblock %}

@@ -1,11 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Post
-
-
-# def home(request):
-#     context = {}
-#     return render(request, 'blog/home.html', context)
 
 
 class HomeView(ListView):
@@ -16,3 +12,10 @@ class HomeView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
+
+
+class CreatePostView(CreateView):
+    model = Post
+    template_name = 'blog/add_post.html'
+    fields = '__all__'
+    success_url = reverse_lazy('blog:home')
